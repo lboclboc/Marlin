@@ -1,0 +1,325 @@
+diff -r ./Marlin/Configuration_adv.h "/home/lasse/FLSUN/software/autolevel Marlin-1.1.2 -cube printer marlin/autolevel Marlin-1.1.2 -cube printer marlin//Marlin-1.1.2 -\346\224\276\346\234\272\345\231\250//Marlin-1.1.2/Marlin/Configuration_adv.h"
+65c65
+<   #define THERMAL_PROTECTION_PERIOD 40        // Seconds
+---
+>   #define THERMAL_PROTECTION_PERIOD 22        // Seconds
+77c77
+<   #define WATCH_TEMP_PERIOD 20                // Seconds
+---
+>   #define WATCH_TEMP_PERIOD 32                // Seconds
+85c85
+<   #define THERMAL_PROTECTION_BED_PERIOD 20    // Seconds
+---
+>   #define THERMAL_PROTECTION_BED_PERIOD 40    // Seconds
+587c587
+< //#define BABYSTEPPING
+---
+> #define BABYSTEPPING
+591c591
+<   #define BABYSTEP_MULTIPLICATOR 1 // Babysteps are very small. Increase for faster motion.
+---
+>   #define BABYSTEP_MULTIPLICATOR 2 // Babysteps are very small. Increase for faster motion.
+593c593
+<   //#define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
+---
+>   #define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
+777c777,778
+< //#define ADVANCED_PAUSE_FEATURE
+---
+> 
+> #define ADVANCED_PAUSE_FEATURE
+779,780c780,781
+<   #define PAUSE_PARK_X_POS 3                  // X position of hotend
+<   #define PAUSE_PARK_Y_POS 3                  // Y position of hotend
+---
+>   #define PAUSE_PARK_X_POS 10                 // X position of hotend
+>   #define PAUSE_PARK_Y_POS 10                 // Y position of hotend
+785a787
+>  
+805c807
+<   //#define PARK_HEAD_ON_PAUSE                // Go to filament change position on pause, return to print position on resume
+---
+>   #define PARK_HEAD_ON_PAUSE                  // Go to filament change position on pause, return to print position on resume
+1189a1192,1193
+> // @section debug
+> 
+1193c1197,1199
+< //#define PINS_DEBUGGING
+---
+> #define PINS_DEBUGGING
+> 
+> // @section extras
+1230c1236
+< #define PROPORTIONAL_FONT_RATIO 1.0
+---
+> #define PROPORTIONAL_FONT_RATIO 1.5
+1256,1257c1262,1263
+<   #define USER_DESC_5 "Home & Info"
+<   #define USER_GCODE_5 "G28\nM503"
+---
+>   //#define USER_DESC_5 "Home & Info"
+>   //#define USER_GCODE_5 "G28\nM503"
+1260c1266
+< #endif // CONFIGURATION_ADV_H
+---
+> #endif // CONFIGURATION_ADV_H
+diff -r ./Marlin/Configuration.h "/home/lasse/FLSUN/software/autolevel Marlin-1.1.2 -cube printer marlin/autolevel Marlin-1.1.2 -cube printer marlin//Marlin-1.1.2 -\346\224\276\346\234\272\345\231\250//Marlin-1.1.2/Marlin/Configuration.h"
+126c126
+< //#define CUSTOM_MACHINE_NAME "3D Printer"
+---
+> #define CUSTOM_MACHINE_NAME "Flsun"
+164c164
+< //#define MIXING_EXTRUDER
+---
+> #define MIXING_EXTRUDER
+253c253
+< #define TEMP_SENSOR_BED 0
+---
+> #define TEMP_SENSOR_BED 1
+288,292c288,292
+< #define HEATER_1_MAXTEMP 275
+< #define HEATER_2_MAXTEMP 275
+< #define HEATER_3_MAXTEMP 275
+< #define HEATER_4_MAXTEMP 275
+< #define BED_MAXTEMP 150
+---
+> #define HEATER_1_MAXTEMP 245
+> #define HEATER_2_MAXTEMP 245
+> #define HEATER_3_MAXTEMP 245
+> #define HEATER_4_MAXTEMP 245
+> #define BED_MAXTEMP 115
+314a315,320
+> 
+>   // FolgerTech i3-2020
+>   //#define  DEFAULT_Kp 11.50
+>   //#define  DEFAULT_Ki 0.50
+>   //#define  DEFAULT_Kd 60.00
+> 
+344c350
+< //#define PIDTEMPBED
+---
+> #define PIDTEMPBED
+360,362c366,368
+<   #define  DEFAULT_bedKp 10.00
+<   #define  DEFAULT_bedKi .023
+<   #define  DEFAULT_bedKd 305.4
+---
+>   #define  DEFAULT_bedKp 250.0
+>   #define  DEFAULT_bedKi 18.0
+>   #define  DEFAULT_bedKd 950.0
+404c410
+< #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+---
+> //#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+452,454c458,460
+< #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+< #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+< #define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+---
+> #define X_MIN_ENDSTOP_INVERTING false  // set to true to invert the logic of the endstop.
+> #define Y_MIN_ENDSTOP_INVERTING false  // set to true to invert the logic of the endstop.
+> #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+458c464
+< #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe.
+---
+> #define Z_MIN_PROBE_ENDSTOP_INVERTING true  // set to true to invert the logic of the probe.
+489c495
+< #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
+---
+> #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 150 }
+496c502
+< #define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+---
+> #define DEFAULT_MAX_FEEDRATE          { 250, 250, 2, 17 }
+504c510
+< #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+---
+> #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 4, 750 }
+514,516c520,522
+< #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
+< #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
+< #define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+---
+> #define DEFAULT_ACCELERATION           500    // X, Y, Z and E acceleration for printing moves
+> #define DEFAULT_RETRACT_ACCELERATION   400    // E acceleration for retracts
+> #define DEFAULT_TRAVEL_ACCELERATION    400    // X, Y, Z acceleration for travel (non printing) moves
+526,527c532,533
+< #define DEFAULT_XJERK                 20.0
+< #define DEFAULT_YJERK                 20.0
+---
+> #define DEFAULT_XJERK                 17.0
+> #define DEFAULT_YJERK                 17.0
+529c535
+< #define DEFAULT_EJERK                  5.0
+---
+> #define DEFAULT_EJERK                  4.0
+574c580
+<  * You must activate one of these to use Auto Bed Leveling below.
+---
+>  * Activate one of these to use Auto Bed Leveling below.
+593,594c599,600
+< //#define Z_ENDSTOP_SERVO_NR 0   // Defaults to SERVO 0 connector.
+< //#define Z_SERVO_ANGLES {70,0}  // Z Servo Deploy and Stow angles
+---
+> #define Z_ENDSTOP_SERVO_NR 0   // Defaults to SERVO 0 connector.
+> #define Z_SERVO_ANGLES {40,85}  // Z Servo Deploy and Stow angles
+644,646c650,652
+< #define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
+< #define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
+< #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+---
+> #define X_PROBE_OFFSET_FROM_EXTRUDER 25     // X offset: -left  +right  [of the nozzle]
+> #define Y_PROBE_OFFSET_FROM_EXTRUDER -11     // Y offset: -front +behind [the nozzle]
+> #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.4  // Z offset: -below +above  [the nozzle]
+649,650c655
+< #define XY_PROBE_SPEED 8000
+< 
+---
+> #define XY_PROBE_SPEED 7500
+674,675c679,680
+< #define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
+< #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
+---
+> #define Z_CLEARANCE_DEPLOY_PROBE    3 // Z Clearance for Deploy/Stow
+> #define Z_CLEARANCE_BETWEEN_PROBES  3 // Z Clearance between probe points
+677,678c682
+< // For M851 give a range for adjusting the Z probe offset
+< #define Z_PROBE_OFFSET_RANGE_MIN -20
+---
+> // For M851 give a range for adjusting the Z probe offset#define Z_PROBE_OFFSET_RANGE_MIN -20
+682c686
+< //#define Z_MIN_PROBE_REPEATABILITY_TEST
+---
+> #define Z_MIN_PROBE_REPEATABILITY_TEST
+709,710c713
+< #define INVERT_Z_DIR false
+< 
+---
+> #define INVERT_Z_DIR true
+725c728
+< //#define Z_HOMING_HEIGHT 4  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
+---
+> #define Z_HOMING_HEIGHT 4    // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
+740,743c743,745
+< #define X_MAX_POS 200
+< #define Y_MAX_POS 200
+< #define Z_MAX_POS 200
+< 
+---
+> #define X_MAX_POS 260
+> #define Y_MAX_POS 260
+> #define Z_MAX_POS 350
+745c747
+< #define MIN_SOFTWARE_ENDSTOPS
+---
+> //#define MIN_SOFTWARE_ENDSTOPS
+808c810
+< //#define AUTO_BED_LEVELING_LINEAR
+---
+> #define AUTO_BED_LEVELING_LINEAR
+834,835c836,837
+<   #define LEFT_PROBE_BED_POSITION 15
+<   #define RIGHT_PROBE_BED_POSITION 170
+---
+>   #define LEFT_PROBE_BED_POSITION 25
+>   #define RIGHT_PROBE_BED_POSITION 240
+837c839
+<   #define BACK_PROBE_BED_POSITION 170
+---
+>   #define BACK_PROBE_BED_POSITION 240
+867,870c869,872
+<   #define ABL_PROBE_PT_1_X 15
+<   #define ABL_PROBE_PT_1_Y 180
+<   #define ABL_PROBE_PT_2_X 15
+<   #define ABL_PROBE_PT_2_Y 20
+---
+>   #define ABL_PROBE_PT_1_X 39
+>   #define ABL_PROBE_PT_1_Y 170
+>   #define ABL_PROBE_PT_2_X 39
+>   #define ABL_PROBE_PT_2_Y 10
+872c874,876
+<   #define ABL_PROBE_PT_3_Y 20
+---
+>   #define ABL_PROBE_PT_3_Y 10
+> 
+> 
+882,886c886,890
+<   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+<   #define UBL_PROBE_PT_1_X 39       // These set the probe locations for when UBL does a 3-Point leveling
+<   #define UBL_PROBE_PT_1_Y 180      // of the mesh.
+<   #define UBL_PROBE_PT_2_X 39
+<   #define UBL_PROBE_PT_2_Y 20
+---
+>   #define GRID_MAX_POINTS_Y 10
+>   #define UBL_PROBE_PT_1_X 45       // These set the probe locations for when UBL does a 3-Point leveling
+>   #define UBL_PROBE_PT_1_Y 170      // of the mesh.
+>   #define UBL_PROBE_PT_2_X 45
+>   #define UBL_PROBE_PT_2_Y 25
+888c892
+<   #define UBL_PROBE_PT_3_Y 20
+---
+>   #define UBL_PROBE_PT_3_Y 25
+943c947
+< //#define Z_SAFE_HOMING
+---
+> #define Z_SAFE_HOMING
+951,952c955,956
+< #define HOMING_FEEDRATE_XY (50*60)
+< #define HOMING_FEEDRATE_Z  (4*60)
+---
+> #define HOMING_FEEDRATE_XY (40*60)
+> #define HOMING_FEEDRATE_Z  (55)
+968c972
+< //#define EEPROM_SETTINGS
+---
+> #define EEPROM_SETTINGS
+981c985
+< #define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
+---
+> //#define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
+987c991
+< //#define M100_FREE_MEMORY_WATCHER // uncomment to add the M100 Free Memory Watcher for debug purpose
+---
+> #define M100_FREE_MEMORY_WATCHER // uncomment to add the M100 Free Memory Watcher for debug purpose
+1002,1003c1006,1007
+< #define PREHEAT_1_TEMP_HOTEND 180
+< #define PREHEAT_1_TEMP_BED     70
+---
+> #define PREHEAT_1_TEMP_HOTEND 205
+> #define PREHEAT_1_TEMP_BED     60
+1007c1011
+< #define PREHEAT_2_TEMP_BED    110
+---
+> #define PREHEAT_2_TEMP_BED    100
+1183c1187
+< //#define SDSUPPORT
+---
+> #define SDSUPPORT
+1200c1204
+< //#define SD_CHECK_AND_RETRY
+---
+> #define SD_CHECK_AND_RETRY
+1327c1331
+< //#define REPRAP_DISCOUNT_SMART_CONTROLLER
+---
+> #define REPRAP_DISCOUNT_SMART_CONTROLLER
+1536c1540
+< //#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+---
+> #define NUM_SERVOS 2 // Servo index starts with 0 for M280 command
+1541c1545
+< #define SERVO_DELAY 300
+---
+> #define SERVO_DELAY 500
+1546c1550
+< //#define DEACTIVATE_SERVOS_AFTER_MOVE
+---
+> #define DEACTIVATE_SERVOS_AFTER_MOVE
+1568c1572
+< #define DEFAULT_NOMINAL_FILAMENT_DIA 3.00   // (mm) Diameter of the filament generally used (3.0 or 1.75mm), also used in the slicer. Used to validate sensor reading.
+---
+> #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75   // (mm) Diameter of the filament generally used (3.0 or 1.75mm), also used in the slicer. Used to validate sensor reading.
+1584c1588
+< #endif // CONFIGURATION_H
+---
+> #endif // CONFIGURATION_H
